@@ -1,5 +1,5 @@
 import './bootstrap';
-import "~resources/scss/app.scss";
+import '../sass/app.scss';
 import.meta.glob([
     '../img/**'
 ]);
