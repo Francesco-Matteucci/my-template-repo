@@ -12,6 +12,12 @@ body {
     background: url('/img/stone-texture.jpg');
     background-size: cover;
     color: #e0e0e0;
+    font-family: 'Cinzel', serif;
+}
+
+h1, h2, h3, .btn, .navbar-brand {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
 }
 
 main {
@@ -38,20 +44,32 @@ h1 {
     background-color: rgba(51, 51, 51, 0.9);
     border: 1px solid #5c5040;
     color: #d4c5a1;
+    margin-top: 2rem; /* Aggiungi uno spazio sopra la tabella */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
-.table th {
-    background-color: #5c5040;
-    color: #d4c5a1;
-    font-size: 1.2rem;
-}
-
-.table td, .table th {
+.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
     border: 1px solid #7d7566;
+    padding: 1rem;
 }
 
-.table tr:hover {
+.table thead th {
+    background-color: #5c5040;
+    color: #f4e2a1;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.table tbody tr:hover {
     background-color: rgba(113, 100, 89, 0.4);
+}
+
+.name-h {
+    font-weight: bold;
+    color: #f4e2a1;
 }
 
 .btn-primary, .btn-info, .btn-warning, .btn-success, .btn-danger {
@@ -76,6 +94,11 @@ header .bg-dark {
     opacity: 0.6;
 }
 
+.header-logo {
+    height: 80px;
+}
+
+
 .pagination .page-link {
     color: #c0c0c0; /* Cambia il colore del testo in un argento antico */
     background-color: #2b2b2b; /* Sfondo scuro */
@@ -93,21 +116,56 @@ header .bg-dark {
     border-color: #565656;
 }
 
-
-.badge-dps {
-    background-color: #d9534f; /* Rosso guerriero */
-    color: #ffffff;
+.main-logo {
+    position: relative;
+    top: -50px;
+    z-index: 3;
 }
 
-.badge-healer {
-    background-color: #5bc0de; /* Blu guaritore */
-    color: #000;
+.title-glow {
+    color: #f4e2a1; /* Colore dorato chiaro */
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #34d6ff,
+        0 0 30px #34d6ff,
+        0 0 40px #34d6ff,
+        0 0 55px #34d6ff,
+        0 0 75px #0097bd;
 }
 
-.badge-tank {
-    background-color: #5cb85c; /* Verde tank */
-    color: #000;
-}
+//  .badge-dps {
+//      background-color: #d9534f; /* Rosso guerriero */
+//      color: #ffffff;
+//  }
+
+//  .badge-healer {
+//      background-color: #5bc0de; /* Blu guaritore */
+//      color: #000;
+//  }
+
+//  .badge-tank {
+//      background-color: #5cb85c; /* Verde tank */
+//      color: #000;
+//  }
+
+ .bg-dps {
+     background-image: url('../../public/img/dagger.png'); /* Immagine per DPS */
+     background-size: cover; /* Copri tutta l'area del badge */
+     color: #ffffff;
+ }
+
+ .bg-healer {
+     background-image: url('../../public/img/wand.png'); /* Immagine per Healer */
+     background-size: cover;
+     color: #000;
+ }
+
+ .bg-tank {
+     background-image: url('../../public/img/sns.png'); /* Immagine per Tank */
+     background-size: cover;
+     color: #000;
+ }
 
 .fc-logo img {
     height: 500px;
@@ -144,7 +202,7 @@ header .bg-dark {
 }
 
 .priority-highlight {
-    background: linear-gradient(145deg, #8b6f43, #d4a259);
+
     color: #ffd700;
     font-weight: bold;
     font-size: 1.2em;
@@ -153,11 +211,117 @@ header .bg-dark {
     text-align: center;
 }
 
+
 header {
     position: relative;
     z-index: 1;
 }
 
+
 .fc-home {
     padding: 40px;
+}
+
+.sortable {
+    color: inherit; /* Mantiene il colore originale */
+    text-decoration: none; /* Rimuove la sottolineatura */
+}
+
+.sortable:hover {
+    color: inherit; /* Mantiene il colore anche al passaggio del mouse */
+}
+
+table img {
+    height: 50px;
+}
+
+
+
+.btn {
+    font-weight: bold;
+    background-color: #7d7566;
+    color: #e0e0e0;
+    border: 2px solid #5c5040;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #a89b7b;
+    border-color: #a89b7b;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+a.sortable {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+a.sortable:hover {
+    color: #f4e2a1;
+}
+
+a.sortable::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #f4e2a1;
+    left: 0;
+    bottom: -5px;
+    transition: width 0.3s;
+}
+
+a.sortable:hover::after {
+    width: 100%;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#search {
+    padding-right: 2.5rem;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    color: #e0e0e0;
+    font-size: 1.2rem;
+}
+
+.player-checkbox {
+    transform: scale(1.2);
+    margin-right: 5px;
+}
+
+#select-all-checkboxes {
+    transform: scale(1.2);
+}
+
+   /* Miglioramenti estetici per le barre */
+   .progress-bar {
+
+    transition: width 0.3s ease-in-out;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4), inset 0 -1px 5px rgba(255, 255, 255, 0.2);
+    background-size: 200% 100%;
+    animation: gradientAnimation 3s ease infinite, glow 1s ease-in-out infinite alternate;
+}
+
+/* Effetto gradiente in movimento */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 0%; }
+}
+
+/* Bagliore alternato */
+@keyframes glow {
+    from { box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
+    to { box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); }
 }
